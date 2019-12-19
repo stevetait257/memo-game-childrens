@@ -2,3 +2,15 @@
 	transform: rotateY(180deg);
 }
 
+.row {
+
+	position: relative;
+}
+
+.card{
+
+	position: relative;
+}
+img{
+	position: absolute ;
+}

@@ -13,9 +13,10 @@ cards.forEach((card) => {
 });
 
 // set variables for algo
-let hasTurnedCard = false;
+// let hasTurnedCard = false;
 let firstCard;
 let secondCard;
+let gameOver = false;
 
 // shuffle deck
 
@@ -28,17 +29,31 @@ function shuffleCards() {
 		console.log(cardsArr[j]);
 	});
 }
-
 // the game
 
 function turnCard() {
-	if (firstCard) {
-		hasTurnedCard = false;
-		firstCard = this;
-	}
+	this.classList.add('turned'); // you always want to do this.
 	if (!firstCard) {
-		hasTurnedCard = true;
-		secondCard = this;
-		this.classList.add('turned');
+		firstCard = this; //if the firstCard didn't exist, set the first card
+	} else {
+		secondCard = this; //now it's time to compare both cards!!
 	}
+
+	isEqual();
+}
+
+function isEqual() {
+	let isTheSameCard = firstCard.dataset.card === secondCard.dataset.card;
+	isTheSameCard ? lockCards() : resetCards();
+}
+
+function lockCards() {
+	console.log('someone called lockCards,Cards match');
+}
+
+function resetCards() {
+	firstCard.classList.remove('turned');
+	secondCard.classList.remove('turned');
+
+	console.log('someone called resetCards, Cards do not match');
 }
