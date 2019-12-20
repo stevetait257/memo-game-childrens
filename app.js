@@ -37,10 +37,9 @@ function turnCard() {
 		firstCard = this; //if the firstCard didn't exist, set the first card
 	} else {
 		secondCard = this; //now it's time to compare both cards!!
+		isEqual();
 	}
 }
-
-isEqual();
 
 function isEqual() {
 	let isTheSameCard = firstCard.dataset.card === secondCard.dataset.card;
@@ -49,6 +48,7 @@ function isEqual() {
 
 function lockCards() {
 	console.log('someone called lockCards,Cards match');
+	
 }
 
 function resetCards() {
