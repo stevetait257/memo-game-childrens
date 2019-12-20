@@ -38,9 +38,9 @@ function turnCard() {
 	} else {
 		secondCard = this; //now it's time to compare both cards!!
 	}
-
-	isEqual();
 }
+
+isEqual();
 
 function isEqual() {
 	let isTheSameCard = firstCard.dataset.card === secondCard.dataset.card;
