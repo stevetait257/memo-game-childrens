@@ -22,12 +22,15 @@ let firstCard;
 		card.style.order = position;
 	});
 })();
-// the game
+
+//Check if the cards are equal
 
 function isEqual(cardA, cardB) {
 	isTheSameCard = cardA.dataset.beer === cardB.dataset.beer;
 	return isTheSameCard;
 }
+
+// lock the cards by removing event listener
 
 function lockCards(cardsToLock) {
 	cardsToLock.forEach((card) => {
@@ -36,6 +39,8 @@ function lockCards(cardsToLock) {
 	firstCard = null;
 	console.log('someone called lockCards,Cards match');
 };
+
+//the controller of the game
 
 function handleUserInput() {
 	this.classList.add('turned'); // you always want to do this.
@@ -47,6 +52,8 @@ function handleUserInput() {
 		isTheSameCard ? lockCards([firstCard, currentCard]) : resetCards([firstCard, currentCard]);
 	}
 }
+
+// reset cards if they do not match
 
 function resetCards(cardsToReset) {
 	cardsToReset.forEach((card) => {
