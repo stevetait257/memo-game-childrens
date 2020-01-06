@@ -1,99 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/memo-game-childrens/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/253bd8251e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/253bd8251e.js"></script>
     <link rel="stylesheet" href="styles.css">
 
 
     <title>Memory Game</title>
 </head>
-<body class="bg-primary">
 
+<body>
     <section class="memo-game">
-        <div class="container-lg">
-            <div class="jumbotron">
-                <h1>Memory game</h1>
-                <p>Can you remember 2 cards? Probably not</p>
-                <p>Can Steve code this game? Probably not</p>
-            </div>
-            <div class="row mb-3">
+        <div class="container">
+            <h1 class="jumbotron bg-secondary text-center text-white">Memory Game</h1>
 
-                <div class="col-sm-5 bg-danger card card-body border-0 m-auto" data-card="two"> P
-                    <img id="frontt1" class="img-fluid rounded" src="two_diamonds.png" alt="" >
-                    <img id="backt1" class="img-fluid rounded" src="card_back.png" alt="" >
+            <div class="row">
+                <div class="col-4-lg card" data-beer="Becks">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Becks-stubby-350-937.jpg" alt="">
 
                 </div>
-
-                <div class="col-sm-5 bg-warning card card-body border m-auto" data-card="two">I
-                    <img id="frontt2"  class="img-fluid rounded" src="two_diamonds.png" alt="" >
-                    <img id="backt2" class=" img-fluid rounded" src="card_back.png" alt="" >
-
-                </div>
-            </div>
-            <div class="row ">
-
-                <div  class="col-sm-5 bg-secondary card card-body border-0 m-auto"  data-card="Ace_Spade"> C
-                    <img id="fronta1" class="img-fluid rounded" src="Ace_Spade.png" alt="" >
-                    <img id="backa1" class="img-fluid rounded" src="card_back.png" alt="" >
-                </div>
-
-                <div class="col-sm-5  bg-success card  card-body border-0 m-auto" data-card="ace">K
-                    <img id="fronta1" class="img-fluid rounded" src="Ace_Spade.png" alt="" >
-                    <img id="backa2"class="img-fluid rounded" src="card_back.png" alt="" >
+                <div class="col-4-lg card" data-beer="Becks">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Becks-stubby-350-937.jpg" alt="">
 
                 </div>
+                <div class="col-4-lg card" data-beer="Budweiser">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Budweiser_-350-937.jpg" alt="">
 
+                </div>
+                <div class="col-4-lg card" data-beer="Budweiser">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Budweiser_-350-937.jpg" alt="">
+
+                </div>
             </div>
 
-        </section> 
+            <div class="row">
+                <div class="col-4-lg card" data-beer="four">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/four-pines-350-937.jpg" alt="">
+
+                </div>
+                <div class="col-4-lg card" data-beer="four">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/four-pines-350-937.jpg" alt="">
+                </div>
+
+                <div class="col-4-lg card " data-beer="Heineken">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Heineken-Stubby-350-937.jpeg" alt="">
+                </div>
+                <div class="col-4-lg card " data-beer="Heineken">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Heineken-Stubby-350-937.jpeg" alt="">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4-lg card " data-beer="Newtowner">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Newtowner-Stubbies-350-937.jpg" alt="">
+
+                </div>
+                <div class="col-4-lg card " data-beer="Newtowner">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/Newtowner-Stubbies-350-937.jpg" alt="">
+
+                </div>
+                <div class="col-4-lg card " data-beer="beechysummer">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/beechysummer-ale-web-1-350-937.jpg" alt="">
+
+                </div>
+                <div class="col-4-lg card " data-beer="beechysummer">
+                    <img class="back" src="images/card-back.png" alt="">
+                    <img class="beer" src="images/beechysummer-ale-web-1-350-937.jpg" alt="">
+
+                </div>
+            </div>
 
 
- 
 
+        </div>
+
+
+
+
+
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
-    <script src="/memo-game-childrens/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/memo-game-childrens/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
-
-
-
-<!-- <section class="memo-game">
-    <div class="container">
-        <div class="jumbotron" >
-            <h1>Memory game</h1>
-            <p>Can you remember 2 cards? Probably not</p>
-        </div>
-        <div class="row">
-
-            <div  class="col-lg-6 border-0 card" data-card="two">
-                <img class="d-none front w-50 p-3 rounded" src="/two_diamonds.png" alt="" >
-                <img class="back w-50 p-3 rounded"  src="/card_back.png" alt="" >
-            </div>
-
-            <div class="col-lg-6 border-0  card" data-card="two">
-                <img class="d-none front w-50 p-3 rounded" src="/two_diamonds.png" alt="" >
-                <img class="back w-50 p-3 rounded" src="/card_back.png" alt="" >
-            </div>
-
-        </div>
-            <div class="row">
-
-                <div class="col card" data-card="ace">
-                    <img class="front w-50 p-3" src="/ace_of_spades.png" alt="" >
-                    <img class="back w-50 p-3" src="/card_back.png" alt="" >
-                </div>
-
-                <div class="col card" data-card="ace">
-                    <img class="front w-50 p-3"  src="/ace_of_spades.png" alt="">
-                    <img class="back w-50 p-3" src="/card_back.png" alt="">
-            </div>
-        </div>  
-        </div>
-
-    </section>  -->

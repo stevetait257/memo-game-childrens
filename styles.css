@@ -1,16 +1,51 @@
+body {
+	height: 100%;
+
+}
+
+.back,
+.beer {
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+}
+
+.beer {
+	max-width: 50%;
+	max-height: 100%;
+	margin: auto;
+	position: relative;
+	bottom: 10rem;
+	transform: rotateY(180deg);
+
+}
+
+.back {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+
+}
+
 .turned {
+	transform-style: preserve-3d;
 	transform: rotateY(180deg);
 }
 
 .row {
-
 	position: relative;
+	margin-bottom: 2rem;
 }
 
-.card{
+.card {
+	height: 10rem;
+	width: 7.5rem;
+	margin: auto;
+	border: 0;
 
-	position: relative;
 }
-img{
-	position: absolute ;
-}
+
+/* .card:active {
+	transform: scale(0.97);
+	transition: transform .3s;
+
+} */

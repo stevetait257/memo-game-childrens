@@ -1,59 +1,59 @@
 // array that stores the cards to be remembered
 const cards = document.querySelectorAll('.card');
 
-const cardsArr = Array.prototype.slice.call(cards);
-// [ ...cards ].forEach((card) => {
-// 	console.dir(card);
-// });
-//Loop through cards array and add event listener to each with the callback
-//addEventListener to each card
-
+// loop through cards and add click event
+//listener with the handleUserInput callback
 cards.forEach((card) => {
-	card.addEventListener('click', turnCard);
+	card.addEventListener('click', handleUserInput);
 });
 
-// set variables for algo
-// let hasTurnedCard = false;
+// spread nodelist to cardsArr
+const cardsArr = Array.prototype.slice.call([...cards]);
+
+
+// set variable 
 let firstCard;
-let secondCard;
-let gameOver = false;
 
 // shuffle deck
 
-function shuffleCards() {
-	cardsArr.forEach(function(card) {
-		let j = Math.floor(Math.random() * (i + 1));
-		let temp = cardsArr[i];
-		cardsArr[i] = cardsArr[j];
-		cardsArr[j] = temp;
-		console.log(cardsArr[j]);
+(function shuffle() {
+	cards.forEach(card => {
+		let position = Math.floor(Math.random() * 12)
+		card.style.order = position;
 	});
-}
+})();
 // the game
 
-function turnCard() {
+function isEqual(cardA, cardB) {
+	isTheSameCard = cardA.dataset.beer === cardB.dataset.beer;
+	return isTheSameCard;
+}
+
+function lockCards(cardsToLock) {
+	cardsToLock.forEach((card) => {
+		card.removeEventListener('click', handleUserInput);
+	});
+	firstCard = null;
+	console.log('someone called lockCards,Cards match');
+};
+
+function handleUserInput() {
 	this.classList.add('turned'); // you always want to do this.
 	if (!firstCard) {
 		firstCard = this; //if the firstCard didn't exist, set the first card
 	} else {
-		secondCard = this; //now it's time to compare both cards!!
-		isEqual();
+		currentCard = this; //now it's time to compare both cards!
+		isEqual(firstCard, currentCard);
+		isTheSameCard ? lockCards([firstCard, currentCard]) : resetCards([firstCard, currentCard]);
 	}
 }
 
-function isEqual() {
-	let isTheSameCard = firstCard.dataset.card === secondCard.dataset.card;
-	isTheSameCard ? lockCards() : resetCards();
-}
-
-function lockCards() {
-	console.log('someone called lockCards,Cards match');
-	
-}
-
-function resetCards() {
-	firstCard.classList.remove('turned');
-	secondCard.classList.remove('turned');
-
+function resetCards(cardsToReset) {
+	cardsToReset.forEach((card) => {
+		setTimeout(() => {
+			card.classList.remove('turned')
+		}, 1000);
+	});
+	firstCard = null;
 	console.log('someone called resetCards, Cards do not match');
 }
