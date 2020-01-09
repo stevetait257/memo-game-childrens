@@ -3,9 +3,11 @@ const cards = document.querySelectorAll('.card');
 
 // loop through cards and add click event
 //listener with the handleUserInput callback
-cards.forEach((card) => {
-	card.addEventListener('click', handleUserInput);
-});
+(function setup() {
+	cards.forEach((card) => {
+		card.addEventListener('click', handleUserInput);
+	});
+})();
 
 // spread nodelist to cardsArr
 const cardsArr = Array.prototype.slice.call([...cards]);
@@ -39,13 +41,15 @@ function lockCards(cardsToLock) {
 };
 
 function handleUserInput() {
-	if (pausePlay) return;
+	if (pausePlay) {
+		return;
+	}
 	this.classList.add('turned');
 	if (this === firstCard) return
 	if (!firstCard) {
 		firstCard = this;
 	} else {
-		currentCard = this;
+		const currentCard = this;
 
 		isEqual(firstCard, currentCard);
 
@@ -55,10 +59,10 @@ function handleUserInput() {
 }
 
 function resetCards(cardsToReset) {
-	pausePlay = true;
+	pause();
 	cardsToReset.forEach((card) => {
 		setTimeout(() => {
-			pausePlay = false;
+			resume();
 			card.classList.remove('turned');
 
 		}, 1000);
@@ -67,6 +71,14 @@ function resetCards(cardsToReset) {
 	console.log('someone called resetCards, Cards do not match');
 }
 
-cards.forEach((card) => {
-	card.addEventListener('click', handleUserInput);
-});
+// cards.forEach((card) => {
+// 	card.addEventListener('click', handleUserInput);
+// });
+
+function pause() {
+	pausePlay = true;
+}
+
+function resume() {
+	pausePlay = false;
+}
