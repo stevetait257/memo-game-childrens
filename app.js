@@ -10,11 +10,8 @@ cards.forEach((card) => {
 // spread nodelist to cardsArr
 const cardsArr = Array.prototype.slice.call([...cards]);
 
-
-// set variable 
 let firstCard;
-
-// shuffle deck
+let pausePlay;
 
 (function shuffle() {
 	cards.forEach(card => {
@@ -23,44 +20,53 @@ let firstCard;
 	});
 })();
 
-//Check if the cards are equal
-
 function isEqual(cardA, cardB) {
+	pausePlay = true;
 	isTheSameCard = cardA.dataset.beer === cardB.dataset.beer;
 	return isTheSameCard;
 }
-
-// lock the cards by removing event listener
 
 function lockCards(cardsToLock) {
 	cardsToLock.forEach((card) => {
 		card.removeEventListener('click', handleUserInput);
 	});
 	firstCard = null;
+	pausePlay = false;
+
+
 	console.log('someone called lockCards,Cards match');
+
 };
 
-//the controller of the game
-
 function handleUserInput() {
-	this.classList.add('turned'); // you always want to do this.
+	if (pausePlay) return;
+	this.classList.add('turned');
+	if (this === firstCard) return
 	if (!firstCard) {
-		firstCard = this; //if the firstCard didn't exist, set the first card
+		firstCard = this;
 	} else {
-		currentCard = this; //now it's time to compare both cards!
+		currentCard = this;
+
 		isEqual(firstCard, currentCard);
+
 		isTheSameCard ? lockCards([firstCard, currentCard]) : resetCards([firstCard, currentCard]);
+
 	}
 }
 
-// reset cards if they do not match
-
 function resetCards(cardsToReset) {
+	pausePlay = true;
 	cardsToReset.forEach((card) => {
 		setTimeout(() => {
-			card.classList.remove('turned')
+			pausePlay = false;
+			card.classList.remove('turned');
+
 		}, 1000);
 	});
 	firstCard = null;
 	console.log('someone called resetCards, Cards do not match');
 }
+
+cards.forEach((card) => {
+	card.addEventListener('click', handleUserInput);
+});
